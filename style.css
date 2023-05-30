@@ -16,8 +16,17 @@ header {
   justify-content: space-between;
   padding: 2rem;
 }
+header div {
+  display: flex;
+  gap: .5rem;
+}
+header img {
+  width: 12.5%;
+  margin-top: -.5rem;
+  filter: invert(100);
+}
 header i {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 /* City */
@@ -34,13 +43,13 @@ header i {
   color: dimgray;
 }
 .weather {
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
 }
 .first-div {
   display: flex;
-  gap: .5rem;
+  align-self: center;
 }
 .first-div img {
   width: 25%;
@@ -49,6 +58,13 @@ header i {
 .first-div h4 {
   align-self: center;
   font-size: 2rem;
+}
+.second-div {
+  
+}
+.second-div div {
+  color: dimgray;
+  display: flex;
 }
 .second-div p {
   font-size: .8rem;
