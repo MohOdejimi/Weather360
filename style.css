@@ -28,15 +28,38 @@ header img {
 header i {
   font-size: 1.5rem;
 }
+.search-bar {
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 10;
+  background: #171717;
+  display: none;
+}
 
+.search-bar input {
+  margin-top: 1rem;
+  padding: .5rem;
+  border-radius: 5px;
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  padding: 1rem;
+}
 /* City */
 .city {
   padding: 1.5rem;
 }
 .main-content {
   background: #272727;
-  margin-right: 1rem;
-  margin-left: 1rem;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
   border-radius: 10px;
 }
 .city p {
@@ -58,9 +81,6 @@ header i {
 .first-div h4 {
   align-self: center;
   font-size: 2rem;
-}
-.second-div {
-  
 }
 .second-div div {
   color: dimgray;
@@ -87,3 +107,37 @@ header i {
   width: 100%;
   filter: invert(100%);
 }
+
+.day-section {
+  background: #272727;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  padding: 1.5rem 0rem;
+}
+table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: center;
+      width: 20%
+    }
+    
+    @media (max-width: 600px) {
+      th, td {
+        padding: .3rem;
+        font-size: .8rem;
+      }
+      .main-content, .day-section {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+    }
+  .day1 img,.day2 img, .day3 img, .day4 img, .day5 img {
+    width: 35%;
+    
+  }
