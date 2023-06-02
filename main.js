@@ -105,12 +105,6 @@ function convertCountryCode(country) {
    document.querySelector('header i').addEventListener('click', () => {
   document.querySelector('.search-bar').style.display = 'block'
     })
-   document.querySelector('.main-content').addEventListener('click', () => {
-     document.querySelector('.search-bar').style.display = 'none'
-   })
-  document.querySelector('.day-section').addEventListener('click', () => {
-     document.querySelector('.search-bar').style.display = 'none'
-   })
   
    
    // Date Converter 
@@ -133,6 +127,7 @@ function handleKey(event) {
       document.querySelector('.day-section').style.display = 'block'
       document.querySelector('.main-content').style.display = 'block'
       document.querySelector('.properties').style.display = 'block'
+      document.querySelector('.search-bar').style.display = 'none'
       getWeather(searchValue);
       searchInput.value = ''
     }
