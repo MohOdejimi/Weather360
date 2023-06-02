@@ -27,6 +27,7 @@ header img {
 }
 header i {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 .search-bar {
   padding: 1rem;
@@ -56,16 +57,20 @@ input::placeholder {
 .city {
   padding: 1.5rem;
 }
-.main-content {
+.main-content, .properties {
   background: #272727;
   margin-right: 1.5rem;
   margin-left: 1.5rem;
   border-radius: 10px;
+  display: none;
+}
+.dateTime {
+  font-size: .8rem;
 }
 .city p {
   color: dimgray;
 }
-.weather {
+.weather, .properties-div {
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -115,7 +120,35 @@ input::placeholder {
   border-radius: 10px;
   margin-top: 2rem;
   padding: 1.5rem 0rem;
+  display: none;
 }
+.properties {
+  display: block;
+  padding: 1rem;
+  margin-top: 2rem;
+  display: none;
+  margin-bottom: 1rem;
+}
+.properties .wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.3rem;
+}
+.properties div {
+  display: flex;
+  gap: .5rem;
+}
+ .properties i {
+   font-size: 1.5rem;
+ }
+  .properties p {
+   font-size: .8rem;
+   color: dimgray;
+ }
+ .wrap div p {
+   color: white;
+ }
+ 
 table {
       width: 100%;
       border-collapse: collapse;
@@ -132,7 +165,7 @@ table {
         padding: .3rem;
         font-size: .8rem;
       }
-      .main-content, .day-section {
+      .main-content, .day-section, .properties {
         margin-right: 1rem;
         margin-left: 1rem;
       }

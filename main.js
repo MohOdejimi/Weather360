@@ -70,6 +70,13 @@ let day5Icon = document.querySelector('.day5 img')
 let day5MinTemp = document.querySelector('.day5 .min-temperature')
 let day5MaxTemp = document.querySelector('.day5 .max-temperature')
 
+// Last Section
+let windVal = document.querySelector('.wind-val')
+let seaLevel = document.querySelector('.sea-level')
+let latitude = document.querySelector('.latitude')
+let longitude = document.querySelector('.longitude')
+
+
 // Time Converter 
 function convertTime(timestamp, timezone) {
   const convertTimeZone = timezone/3600
@@ -104,6 +111,7 @@ function convertCountryCode(country) {
   document.querySelector('.day-section').addEventListener('click', () => {
      document.querySelector('.search-bar').style.display = 'none'
    })
+  
    
    // Date Converter 
    function convertToDate(dateString) {
@@ -122,6 +130,9 @@ function handleKey(event) {
   if (event.key === 'Enter') {
     const searchValue = searchInput.value.trim();
     if (searchValue) {
+      document.querySelector('.day-section').style.display = 'block'
+      document.querySelector('.main-content').style.display = 'block'
+      document.querySelector('.properties').style.display = 'block'
       getWeather(searchValue);
       searchInput.value = ''
     }
@@ -134,7 +145,6 @@ searchInput.addEventListener('keydown', handleKey)
 
 async function getWeather(current_city) {
   try {
-    
    // let current_city = 'Agege'
     console.log(current_city) 
     const API_KEY = '6f54916aa6f7ec8753539793bf70288b'
@@ -154,7 +164,6 @@ async function getWeather(current_city) {
     
     const requestHour = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${current_city}&appid=${API_KEY}&units=metric`)
     const data = await requestHour.json()
-    
     div1Time.innerHTML = data.list[0].dt_txt.split(' ')[1].slice(0, 5)
     div1Temp.innerHTML = data.list[0].main.temp.toFixed() + '&deg'
     div1Icon.src = `http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@4x.png`
@@ -219,11 +228,16 @@ async function getWeather(current_city) {
     day5MinTemp.innerHTML = data.list[39].main.temp_min.toFixed() +  '&deg' + '/' 
     day5MaxTemp.innerHTML = data.list[39].main.temp_max.toFixed() + '&deg'
     
+    
+    windVal.innerHTML = response.wind.speed + 'm/s'
+    seaLevel.innerHTML = data.list[0].main.sea_level + 'mb'
+    latitude.innerHTML = response.coord.lat
+    longitude.innerHTML = response.coord.lon
   } catch (e) {
     
   }
 }
-document.body.addEventListener('load', getLocation())
+document.body.addEventListener('load', getWeather())
 
 
 
@@ -239,3 +253,4 @@ fetch(apiUrl)
     getWeather(data.city)
   })
 }
+
