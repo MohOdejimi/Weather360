@@ -232,8 +232,8 @@ async function getWeather(current_city) {
     
   }
 }
-document.body.addEventListener('load', getWeather())
-
+//document.body.addEventListener('load', getWeather())
+document.body.addEventListener('load', getCurrentLocation())
 
 
 
@@ -247,5 +247,30 @@ fetch(apiUrl)
     console.log(Object.keys(data))
     getWeather(data.city)
   })
+}
+
+
+async function getCurrentLocation() {
+  try {
+    const position = await new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+
+    const { latitude, longitude } = position.coords;
+    const google_api = 'AIzaSyCD4AZfiRnv2r6GrujEkwR28stvlX4dTxE'
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${google_api}`);
+    const data = await response.json();
+
+    if (data.results && data.results.length > 0) {
+      const locationName = data.results[0].formatted_address;
+      getWeather(locationName)
+    } else {
+      return null;
+    }
+  } catch (error) {
+    // Handle any errors that occur during geolocation or API request
+    console.log('Error retrieving location:', error);
+    return null;
+  }
 }
 
